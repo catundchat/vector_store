@@ -1,5 +1,5 @@
 # Vector_store
-create a vector store by OpenAI，Word2Vec.
+To create a vector store by OpenAI，Word2Vec，Meta AI and Paddle.
 
 ## openai
 
@@ -17,12 +17,29 @@ Word2Vec 是一种用于生成词向量的浅层神经网络模型。其基本�
 
 [下载链接](https://drive.google.com/file/d/1YPcl72LZw9kJgo3puVP2CyixmEz5zzws/view?usp=sharing)
 
-## Faiss
+## Faiss and Rocket QA
 
+Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向量聚类的库。对于构建向量知识库的情境，我们主要用到的是 Faiss 的相似性搜索功能。Rocket QA 是飞桨开源的问答系统。利用 Faiss 和 RocketQA（一个基于 Transformer 模型的开源问答系统）来实现一个搜索引擎。搜索引擎的目的是根据用户提供的问题（查询），找出最相关的答案。
 
+<details>
+  <summary>Faiss构建索引速度更快的理论基础</summary>
+  使用 Faiss 进行大规模相似性搜索通常会比传统的搜索方法更快。这主要是因为 Faiss 使用了一种称为 "近似最近邻搜索" (Approximate Nearest Neighbor Search, ANN) 的方法，这种方法可以大大减少搜索过程中的计算量。在传统的最近邻搜索 (Nearest Neighbor Search, NNS) 中，我们需要计算查询向量与数据库中每一个向量的距离，这种操作在高维度和大数据量的情况下会非常耗时。而在 Faiss 中，使用了一种叫做 "量化" (Quantization) 的方法，将原本需要大量存储和计算的向量进行了压缩，并且在压缩的过程中尽量保持原有的距离关系。这使得在 Faiss 中，我们可以在压缩后的表示上进行计算L2距离即L2范数，从而大大提升了搜索速度。另外，Faiss 还支持 GPU 加速，这对于大规模的相似性搜索任务来说是非常有用的。需要注意的是，Faiss 使用的 ANN 方法在提升搜索速度的同时，可能会对搜索结果的精度产生一定的影响。但在实际应用中，这种影响往往可以接受。
+</details>
+
+<details>
+  <summary>Rocket QA介绍</summary>
+  双塔模型 (Dual Encoder) 主要用于处理大规模的候选检索阶段。在这个阶段，系统将问题和候选答案分别输入两个相同的神经网络（塔）进行编码，然后比较编码结果的相似性来筛选出最相关的候选答案。
+  交叉编码器 (Cross Encoder) 在第一阶段筛选出的候选答案中进行精细的排序。它将问题和候选答案作为一个整体输入到模型中，模型会输出一个分数，表示这个答案的相关性。交叉编码器通常比双塔模型更精确，但是计算复杂度更高，所以通常在筛选过的较小的候选集中使用。
+</details>
+
+这里我们使用之前已有的faiss向量数据库进行查询，文本清洗及文本分段的代码见`faiss/faiss_pre.py`，从Faiss索引中依据query和Rocket QA取回查询结果的代码见`faiss/faiss_retrieval.py`
+
+faiss数据集[下载链接]()
 
 ## References
 
 1. [Embeddings - OpenAI API](https://platform.openai.com/docs/guides/embeddings/what-are-embeddings)
 2. [word2vec | TensorFlow Core](https://www.tensorflow.org/tutorials/text/word2vec#:~:text=word2vec%20is%20not%20a%20singular,downstream%20natural%20language%20processing%20tasks.)
 3. [搜索召回 | Facebook：亿级向量相似度检索库Faiss原理+应用](https://zhuanlan.zhihu.com/p/432317877)
+4. [Faiss Documentation](https://faiss.ai/)
+5. [PaddlePaddle/RocketQA](https://github.com/PaddlePaddle/RocketQA)

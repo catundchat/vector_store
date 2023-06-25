@@ -3,6 +3,8 @@ create a vector store by OpenAi，Word2Vec.
 
 ## openai
 
+OpenAI Embedding 利用基于 transformers 架构的 GPT-3 预训练模型，将单词和句子映射到一个连续的向量空间，这些向量能够捕捉到连续的文本语义信息。最后产生一个输出的向量序列作为文本的向量表示
+
 `openai/vector_store.ipynb`借由 openai embedding 接口完成嵌入，而后利用 LLM 能力进而完成数据库搜索
 
 嵌入的向量数据库保存在 openai/index 下，其中 .pkl 文件保存文件字节流序列化及反序列化等，存储的是 Python 中的对象；.bin 文件保存模型的权重及其他相关信息

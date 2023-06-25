@@ -5,7 +5,7 @@ create a vector store by OpenAi，Word2Vec.
 
 `openai/vector_store.ipynb`借由 openai embedding 接口完成嵌入，而后利用 LLM 能力进而完成数据库搜索
 
-嵌入的向量数据库保存在 openai/index 下
+嵌入的向量数据库保存在 openai/index 下，其中 .pkl 文件保存文件字节流序列化及反序列化等，存储的是 Python 中的对象；.bin 文件保存模型的权重及其他相关信息
 
 ## word2vec
 

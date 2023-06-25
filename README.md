@@ -1,5 +1,5 @@
 # Vector_store
-create a vector store by OpenAi，Word2Vec.
+create a vector store by OpenAI，Word2Vec.
 
 ## openai
 

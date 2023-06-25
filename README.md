@@ -1,5 +1,5 @@
 # vector_store
-create a vector store by openai or other method
+create a vector store by openai，Word2Vec.
 
 ## openai
 
@@ -9,4 +9,8 @@ create a vector store by openai or other method
 
 ## word2vec
 
-`word2vec/create_vs.py` 通过 Word2Vec 算法来完成嵌入，生成的向量数据库保存在 vector_store.index 下，文件太大这里没有上传
+Word2Vec 是一种用于生成词向量的浅层神经网络模型。其基本思想是在大量文本数据上训练模型，使得语义上相似的单词在向量空间中的位置靠近。其隐藏层没有激活函数，也没有偏置项。这使得模型可以直接将one-hot编码的输入映射到词嵌入上，然后再映射到输出上。这样，一旦模型训练完毕，我们可以直接取出隐藏层的权重，作为我们的词向量。
+
+`word2vec/create_vs.py` 通过 Word2Vec 算法来完成嵌入，生成的向量数据库保存在 vector_store.index 
+
+[下载链接](https://drive.google.com/file/d/1YPcl72LZw9kJgo3puVP2CyixmEz5zzws/view?usp=sharing)

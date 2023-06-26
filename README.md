@@ -1,5 +1,5 @@
 # Vector_store
-To create a vector store by OpenAI，Word2Vec，Meta AI and Paddle.
+To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI and BaiduPaddle.
 
 ## openai
 

@@ -32,9 +32,12 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
   交叉编码器 (Cross Encoder) 在第一阶段筛选出的候选答案中进行精细的排序。它将问题和候选答案作为一个整体输入到模型中，模型会输出一个分数，表示这个答案的相关性。交叉编码器通常比双塔模型更精确，但是计算复杂度更高，所以通常在筛选过的较小的候选集中使用。
 </details>
 
-这里我们使用之前已有的faiss向量数据库进行查询，文本清洗及文本分段的代码见`faiss/faiss_pre.py`，从Faiss索引中依据query和Rocket QA取回查询结果的代码见`faiss/faiss_retrieval.py`
+这里我们使用之前已有的 faiss 向量数据库进行查询，文本清洗及文本分段的代码见`faiss/faiss_pre.py`，从Faiss索引中依据query和Rocket QA取回查询结果的代码见`faiss/faiss_retrieval.py`
 
-faiss数据集[下载链接]()
+<details>
+  <summary>faiss 数据集下载链接</summary>
+  链接: https://pan.baidu.com/s/1vGbwEQlGWTiy8u4LUNf_gg?pwd=pkyh 提取码: pkyh
+</details>
 
 ## References
 

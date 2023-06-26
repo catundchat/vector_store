@@ -1,5 +1,5 @@
 # Vector_store
-To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI and BaiduPaddle.
+To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface.
 
 ## openai
 
@@ -38,6 +38,16 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
   <summary>faiss 数据集下载链接</summary>
   链接: https://pan.baidu.com/s/1vGbwEQlGWTiy8u4LUNf_gg?pwd=pkyh 提取码: pkyh
 </details>
+
+## Huggingface
+
+利用 huggingface 上的中文 embedding 库构建向量数据库，并进行向量相似度搜索寻找最符合的句段。
+
+代码见`huggingface/text2vec.py`, colab 版本为`text2vec.ipynb`，所用数据为`huggingface/test_book`下的8本中文书籍。
+
+## 结论
+
+使用大模型的接口较自己搭建embedding模型效果更好，速度更快。其中Faiss 使用 ANN 算法减少计算L2距离时的计算量，在数据量较大时更有用；而OpenAI embedding接口及之后的相似度搜索采用的是余弦相似度，在数据量较小时更适用。
 
 ## References
 

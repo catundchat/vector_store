@@ -56,3 +56,4 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 3. [搜索召回 | Facebook：亿级向量相似度检索库Faiss原理+应用](https://zhuanlan.zhihu.com/p/432317877)
 4. [Faiss Documentation](https://faiss.ai/)
 5. [PaddlePaddle/RocketQA](https://github.com/PaddlePaddle/RocketQA)
+6. [Using Vector Stroes - LlamaIndex](https://gpt-index.readthedocs.io/en/latest/how_to/integrations/vector_stores.html)

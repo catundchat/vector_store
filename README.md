@@ -4,16 +4,18 @@
 To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface. Then do vector similarity search | 为AI爱家聊天机器人创建向量知识库，并选取合适方法进行相似度搜索
 
 # 目录
-- [向量知识库](#向量知识库)
+- [构建向量知识库](#构建向量知识库)
   - [OpenAI](#openai)
   - [Word2Vec](#word2vec)
   - [Faiss and Rocket QA](#Faiss-and-Rocket-QA)
   - [HuggingFace](#Huggingface)
   - [结论](#结论)
 - [向量知识库搜索方法](#向量知识库搜索方法)
+  - [ANN](#ANN)
+  - [余弦相似度](#余弦相似度)
 - [References](#References)
 
-## 向量知识库
+## 构建向量知识库
 
 ### openai
 
@@ -69,7 +71,11 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 
 ### ANN
 
-Approximate Nearest Neighbor 近似最近邻搜索算法：
+Approximate Nearest Neighbor 近似最近邻搜索算法：这种算法可以在牺牲一定精度的前提下，大大提高搜索速度。
+
+### 余弦相似度
+
+Cosine similarity
 
 ## References
 

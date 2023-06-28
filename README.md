@@ -57,6 +57,10 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 
 ## 向量知识库搜索方法
 
+- 构建文本的向量表示：首先，你需要将每段文本转化为向量。这通常可以通过训练好的嵌入模型来实现，比如Word2Vec、GloVe或BERT等。
+- 构建哈希表（可选）：然后，使用LSH或其他哈希方法，将每个文本的向量表示映射到哈希空间，并构建哈希表。
+- 搜索最近邻：当你有一个查询向量时，你可以首先将查询向量映射到哈希空间，然后在哈希表中搜索最近的哈希值，从而找到最近邻的文本。
+
 ### ANN and LSH
 
 Approximate Nearest Neighbor 近似最近邻搜索算法：这种算法可以在牺牲一定精度的前提下，大大提高搜索速度。哈希（Hashing）是ANN中的一种常见方法。基于哈希的ANN通常使用局部敏感哈希（Locality Sensitive Hashing，简称LSH）或其他哈希方法，将原始的高维空间映射到一个低维的哈希空间。在哈希空间中，相似的项会有相同或者相似的哈希值。这样，我们就可以通过比较哈希值来快速找到近似最近邻。
@@ -66,7 +70,6 @@ Approximate Nearest Neighbor 近似最近邻搜索算法：这种算法可以在
 Cosine Similarity:
 
 $$ \text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\| \mathbf{A} \| \| \mathbf{B} \|} = \frac{ \sum_{i=1}^{n} A_i B_i }{ \sqrt{\sum_{i=1}^{n} A_i^2} \sqrt{\sum_{i=1}^{n} B_i^2} } $$
-
 
 具体实现时为了提高效率，常采用计算向量点积后归一化的方法，这里直接给出代码示例`search/cos_similarity_search.ipynb`
 

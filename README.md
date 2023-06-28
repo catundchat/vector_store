@@ -1,4 +1,4 @@
-# Vector_store
+f# Vector_store
 To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface. | 为AI爱家聊天机器人创建向量知识库，并比较下列方法
 
 # 目录
@@ -53,6 +53,8 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 利用 huggingface 上的中文 embedding 库构建向量数据库，并进行向量相似度搜索寻找最符合的句段。
 
 代码见`huggingface/text2vec.py`, colab 版本为`text2vec.ipynb`，所用数据为`huggingface/test_book`下的8本中文书籍。
+
+本机环境：系统内存 8GB，对于8个pdf文本共 30 MB 左右文件，耗时1h构建出向量数据库
 
 ## 结论
 

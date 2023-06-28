@@ -3,7 +3,7 @@
 
 为AI爱家聊天机器人创建向量知识库，并选取合适方法进行相似度搜索为AI爱家聊天机器人创建向量知识库，并选取合适方法进行相似度搜索
 
-To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface. Then do vector similarity search
+To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface. Then do vector similarity search.
 
 # 目录
 - [构建向量知识库](#构建向量知识库)
@@ -58,7 +58,7 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 ## 向量知识库搜索方法
 
 - 构建文本的向量表示：首先，你需要将每段文本转化为向量。这通常可以通过训练好的嵌入模型来实现，比如Word2Vec、GloVe或BERT等。
-- 构建哈希表（可选）：然后，使用LSH或其他哈希方法，将每个文本的向量表示映射到哈希空间，并构建哈希表。
+- 构建哈希表（可选）：然后，使用LSH或其他哈希方法，将每个文本的向量表示映射到哈希空间，并构建哈希表。若要使用需将 scikit-learn 降级至 0.16.1，推荐使用 Faiss 或 Annoy.
 - 搜索最近邻：当你有一个查询向量时，你可以首先将查询向量映射到哈希空间，然后在哈希表中搜索最近的哈希值，从而找到最近邻的文本。
 
 ### ANN and LSH

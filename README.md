@@ -1,5 +1,5 @@
 # Vector_store
-To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface.
+To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface. | 为AI爱家聊天机器人创建向量知识库，并比较下列方法
 
 # 目录
 

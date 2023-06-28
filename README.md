@@ -1,4 +1,6 @@
-f# Vector_store
+# Vector_store
+向量知识库 | L2范数 | 余弦相似度
+
 To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface. | 为AI爱家聊天机器人创建向量知识库，并比较下列方法
 
 # 目录

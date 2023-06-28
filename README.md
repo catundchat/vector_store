@@ -63,8 +63,9 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 
 ### ANN and LSH
 
-- Approximate Nearest Neighbor 近似最近邻搜索算法：这种算法可以在牺牲一定精度的前提下，大大提高搜索速度。哈希（Hashing）是ANN中的一种常见方法。基于哈希的ANN通常使用局部敏感哈希（Locality Sensitive Hashing，简称LSH）或其他哈希方法，将原始的高维空间映射到一个低维的哈希空间。在哈希空间中，相似的项会有相同或者相似的哈希值。这样，我们就可以通过比较哈希值来快速找到近似最近邻。
+- Approximate Nearest Neighbor 这种算法可以在牺牲一定精度的前提下，大大提高搜索速度。哈希（Hashing）是ANN中的一种常见方法。基于哈希的ANN通常使用局部敏感哈希（Locality Sensitive Hashing，简称LSH）或其他哈希方法，将原始的高维空间映射到一个低维的哈希空间。在哈希空间中，相似的项会有相同或者相似的哈希值。这样，我们就可以通过比较哈希值来快速找到近似最近邻。
 - LSH Forest：局部敏感哈希森林是普通近似最近邻搜索方法的替代方法, LSH Forest 数据结构是使用排序数组、二分搜索和 32 位固定长度哈希来实现的。使用随机投影作为近似余弦距离的哈希族。
+- Annoy: APPROXIMATE NEAREST NEIGHBORS OH YEAH，近似最近邻搜索算法是 LSH Forest 这种算法的替代方法（LSH Forest 算法已被丢弃），采用了二叉树这个数据结构来提升查询的效率，目标是把查询的耗时减少至 O(\ln(n)).
 
 ### 余弦相似度
 

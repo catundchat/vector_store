@@ -1,6 +1,15 @@
 # Vector_store
 To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface.
 
+# 目录
+
+- [OpenAI](#openai)
+- [Word2Vec](#word2vec)
+- [Faiss and Rocket QA](#Faiss-and-Rocket-QA)
+- [HuggingFace](#Huggingface)
+- [结论](#结论)
+- [References](#References)
+
 ## openai
 
 OpenAI Embedding 利用基于 transformers 架构的 GPT-3 预训练模型，将单词和句子映射到一个连续的向量空间，这些向量能够捕捉到连续的文本语义信息。最后产生一个输出的向量序列作为文本的向量表示

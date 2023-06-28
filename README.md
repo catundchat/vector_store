@@ -71,7 +71,7 @@ Cosine Similarity:
 
 $$ \text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\| \mathbf{A} \| \| \mathbf{B} \|} = \frac{ \sum_{i=1}^{n} A_i B_i }{ \sqrt{\sum_{i=1}^{n} A_i^2} \sqrt{\sum_{i=1}^{n} B_i^2} } $$
 
-具体实现时为了提高效率，常采用计算向量点积后归一化的方法，这里直接给出代码示例`search/cos_similarity_search.ipynb`
+具体实现时为了提高效率，经常采用计算向量点积后归一化的方法，这里直接给出代码示例`search/cos_similarity_search.ipynb`
 
 ## References
 

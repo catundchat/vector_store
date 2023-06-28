@@ -13,11 +13,13 @@ To create a vector store using embedding technologies, provided by OpenAI，Word
   - [HuggingFace](#Huggingface)
   - [结论](#结论)
 - [向量知识库搜索方法](#向量知识库搜索方法)
-  - [ANN](#ANN)
+  - [ANN and LSH](#ANN-and-LSH)
   - [余弦相似度](#余弦相似度)
 - [References](#References)
 
 ## 构建向量知识库
+
+下列构建向量数据库方法基本包括：方法介绍，代码，向量数据库文件及其下载链接
 
 ### openai
 
@@ -61,9 +63,9 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 
 利用 huggingface 上的中文 embedding 库构建向量数据库，并进行向量相似度搜索寻找最符合的句段。
 
-代码见`huggingface/text2vec.py`, colab 版本为`text2vec.ipynb`调用 GPU 加速，所用数据为`huggingface/test_book`下的8本中文书籍。
+本机运行代码见`huggingface/text2vec.py`, CPU Ram 8GB, 对《5%的改变》这本书进行 embedding 耗时1.5h，结果保存在`huggingface/knowledge_vectors_1.pkl`
 
-本机环境：系统内存 8GB，对于8个pdf文本共 30 MB 左右文件，耗时1h构建出向量数据库`hugggingface/knowledge_vectors.pkl`
+colab 版本为`text2vec.ipynb`且调用 GPU:Tesla T4 加速，所用数据为`huggingface/test_book`下的8本中文书籍
 
 ### 结论
 
@@ -71,9 +73,10 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 
 ## 向量知识库搜索方法
 
-### ANN
+### ANN AND LSH
 
-Approximate Nearest Neighbor 近似最近邻搜索算法：这种算法可以在牺牲一定精度的前提下，大大提高搜索速度。
+Approximate Nearest Neighbor 近似最近邻搜索算法：这种算法可以在牺牲一定精度的前提下，大大提高搜索速度。哈希（Hashing）是ANN中的一种常见方法。基于哈希的ANN通常使用局部敏感哈希（Locality Sensitive Hashing，简称LSH）或其他哈希方法，将原始的高维空间映射到一个低维的哈希空间。在哈希空间中，相似的项会有相同或者相似的哈希值。这样，我们就可以通过比较哈希值来快速找到近似最近邻。
+
 
 ### 余弦相似度
 

@@ -73,7 +73,7 @@ colab 版本为`text2vec.ipynb`且调用 GPU:Tesla T4 加速，所用数据为`h
 
 ## 向量知识库搜索方法
 
-### ANN AND LSH
+### ANN and LSH
 
 Approximate Nearest Neighbor 近似最近邻搜索算法：这种算法可以在牺牲一定精度的前提下，大大提高搜索速度。哈希（Hashing）是ANN中的一种常见方法。基于哈希的ANN通常使用局部敏感哈希（Locality Sensitive Hashing，简称LSH）或其他哈希方法，将原始的高维空间映射到一个低维的哈希空间。在哈希空间中，相似的项会有相同或者相似的哈希值。这样，我们就可以通过比较哈希值来快速找到近似最近邻。
 
@@ -81,6 +81,8 @@ Approximate Nearest Neighbor 近似最近邻搜索算法：这种算法可以在
 ### 余弦相似度
 
 Cosine similarity
+
+具体实现较为简单，这里直接给出代码示例`search/cos_similarity_search.ipynb`
 
 ## References
 

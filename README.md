@@ -13,7 +13,7 @@ To create a vector store using embedding technologies, provided by OpenAI，Word
   - [HuggingFace](#Huggingface)
   - [结论](#结论)
 - [向量知识库搜索方法](#向量知识库搜索方法)
-  - [ANN and LSH](#ANN-and-LSH)
+  - [ANN](#ANN)
   - [余弦相似度](#余弦相似度)
 - [References](#References)
 
@@ -61,11 +61,12 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 - 构建哈希表（可选）：然后，使用LSH或其他哈希方法，将每个文本的向量表示映射到哈希空间，并构建哈希表。若要使用需将 scikit-learn 降级至 0.16.1，推荐使用 Faiss 或 Annoy.
 - 搜索最近邻：当你有一个查询向量时，你可以首先将查询向量映射到哈希空间，然后在哈希表中搜索最近的哈希值，从而找到最近邻的文本。
 
-### ANN and LSH
+### ANN
 
 - Approximate Nearest Neighbor 这种算法可以在牺牲一定精度的前提下，大大提高搜索速度。哈希（Hashing）是ANN中的一种常见方法。基于哈希的ANN通常使用局部敏感哈希（Locality Sensitive Hashing，简称LSH）或其他哈希方法，将原始的高维空间映射到一个低维的哈希空间。在哈希空间中，相似的项会有相同或者相似的哈希值。这样，我们就可以通过比较哈希值来快速找到近似最近邻。
 - LSH Forest：局部敏感哈希森林是普通近似最近邻搜索方法的替代方法, LSH Forest 数据结构是使用排序数组、二分搜索和 32 位固定长度哈希来实现的。使用随机投影作为近似余弦距离的哈希族。
-- Annoy: APPROXIMATE NEAREST NEIGHBORS OH YEAH，近似最近邻搜索算法是 LSH Forest 这种算法的替代方法（LSH Forest 算法已被丢弃），采用了二叉树这个数据结构来提升查询的效率，目标是把查询的耗时减少至 O(\ln(n)).
+- Annoy: APPROXIMATE NEAREST NEIGHBORS OH YEAH，近似最近邻搜索算法是 LSH Forest 这种算法的替代方法（LSH Forest 算法已 deprecated），采用了二叉树这个数据结构来提升查询的效率，目标是把查询的耗时减少至 O(\ln(n)).
+-代码示例见：`search/annoy.py`
 
 ### 余弦相似度
 
@@ -73,7 +74,7 @@ Cosine Similarity:
 
 $$ \text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\| \mathbf{A} \| \| \mathbf{B} \|} = \frac{ \sum_{i=1}^{n} A_i B_i }{ \sqrt{\sum_{i=1}^{n} A_i^2} \sqrt{\sum_{i=1}^{n} B_i^2} } $$
 
-具体实现时为了提高效率，经常采用计算向量点积后归一化的方法，这里直接给出代码示例`search/cos_similarity_search.ipynb`
+具体实现时为了提高效率，经常采用计算向量点积后归一化的方法，这里直接给出代码示例：`search/cos_similarity_search.ipynb`适用于文本数量较小比如单篇文章，`search/cos_search_2.py`适用于文本数量较大比如书籍
 
 ## References
 

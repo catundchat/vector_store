@@ -16,6 +16,7 @@ To create a vector store using embedding technologies, provided by OpenAI，Word
   - [ANN](#ANN)
   - [余弦相似度](#余弦相似度)
 - [搜索结果示例](#搜索结果示例)
+  - [评价](#评价)
 - [References](#References)
 
 ## 构建向量知识库
@@ -91,6 +92,10 @@ $$ \text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\| \mathbf{A} \
 ## 搜索结果示例
 
 ![search.PNG](img/search.JPG)
+
+### 评价
+
+经过多次试验后，现在可以控制模型的输出文本长度。不会出现幻觉(hallucination)问题，但是因为基于 Top_K 选取最高相似度的前K个句子，所生成的回答偶现语义不连贯现象。若有更好的文本清洗质量，后续将修改算法，选取最高相似度的前K个段落，可以很大程度上增加语意连贯性。
 
 ## References
 

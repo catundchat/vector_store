@@ -1,7 +1,7 @@
 # Vector_store
-向量知识库 | 相似度搜索
+向量知识库 | 相似度搜索 | 微信小程序：AI爱家
 
-为AI爱家聊天机器人创建向量知识库，并选取合适方法进行相似度搜索为AI爱家聊天机器人创建向量知识库，并选取合适方法进行相似度搜索
+为 AI爱家聊天机器人 创建向量知识库，并选取合适方法进行相似度搜索 
 
 To create a vector store using embedding technologies, provided by OpenAI，Word2Vec，Meta AI, BaiduPaddle, packages on huggingface. Then do vector similarity search.
 

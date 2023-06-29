@@ -15,6 +15,7 @@ To create a vector store using embedding technologies, provided by OpenAI，Word
 - [向量知识库搜索方法](#向量知识库搜索方法)
   - [ANN](#ANN)
   - [余弦相似度](#余弦相似度)
+- [搜索结果示例](#搜索结果示例)
 - [References](#References)
 
 ## 构建向量知识库
@@ -49,7 +50,10 @@ Faiss 是由 Facebook AI 开发的一款用于高效相似性搜索和密集向�
 
 ### Huggingface
 
-利用 huggingface 上的中文 embedding 库构建向量数据库，并进行向量相似度搜索寻找最符合的句段。本机运行代码见`huggingface/text2vec.py`, CPU Ram 8GB, 对《5%的改变》这本书进行 embedding 耗时1.5h，结果保存在`knowledge_vectors_1.pkl` 共400MB，[下载链接](https://drive.google.com/file/d/1QaNpN4EKys1sippa6SDebsFseQbaN7xV/view?usp=sharing) ; Colab 版本为`text2vec.ipynb`且调用 GPU:Tesla T4 加速，所用数据为`huggingface/test_book`下的8本中文书籍，大概耗费6h生成32.65GB大小的`knowledge_vectors.pkl`，[下载链接](https://drive.google.com/file/d/1rh2UXEnc8vocZeVm8_pe7DphMTHRLvZN/view?usp=sharing)
+利用 huggingface 上的中文 embedding 库构建向量数据库，并进行向量相似度搜索寻找最符合的句段。
+- 本机运行代码见`huggingface/text2vec.py`, CPU Ram 8GB, 对《5%的改变》这本书进行 embedding 耗时1.5h，结果保存在`knowledge_vectors_1.pkl` 共400MB，[下载链接](https://drive.google.com/file/d/1QaNpN4EKys1sippa6SDebsFseQbaN7xV/view?usp=sharing) ;
+- Colab 版本为`text2vec.ipynb`且调用 GPU:Tesla T4 加速，所用数据为`huggingface/test_book`下的8本中文书籍，大概耗费6h生成32.65GB大小的`knowledge_vectors.pkl`，[下载链接](https://drive.google.com/file/d/1rh2UXEnc8vocZeVm8_pe7DphMTHRLvZN/view?usp=sharing)
+- 文本清洗时使用的中文停用词见`cn_stop_words.txt`
 
 ### 结论
 

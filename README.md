@@ -80,7 +80,7 @@ $$ \text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\| \mathbf{A} \
 - `search/cos_similarity_search.ipynb`适用于文本数量较小比如单篇文章
 - `search/cos_search_2.py`适用于文本数量较大比如书籍
 
-最后得到的效果如图：
+### 搜索结果示例
 
 ![search.PNG](img/search.JPG)
 

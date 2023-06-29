@@ -78,7 +78,7 @@ Cosine Similarity:
 
 $$ \text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\| \mathbf{A} \| \| \mathbf{B} \|} = \frac{ \sum_{i=1}^{n} A_i B_i }{ \sqrt{\sum_{i=1}^{n} A_i^2} \sqrt{\sum_{i=1}^{n} B_i^2} } $$
 
-如果 Latex 公式不能正常显示，请安装 mathjax plugin for github [安装链接](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima)
+注：如果 LaTeX 公式不能正常显示，请安装 Mathjax plugin for github [安装链接](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima)
 
 具体实现时为了提高效率，经常采用计算向量点积后归一化的方法，这里直接给出代码示例：
 - `search/cos_similarity_search.ipynb`适用于文本数量较小比如单篇文章

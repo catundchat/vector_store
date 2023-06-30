@@ -12,6 +12,9 @@ To create a vector store using embedding technologies, provided by OpenAI，Word
   - [Faiss and Rocket QA](#Faiss-and-Rocket-QA)
   - [HuggingFace](#Huggingface)
   - [结论](#结论)
+- [向量知识库选择](#向量知识库选择)
+  - [多种向量知识库横向对比](#多种向量知识库横向对比)
+  - [选择建议](#选择建议)
 - [向量知识库搜索方法](#向量知识库搜索方法)
   - [ANN](#ANN)
   - [余弦相似度](#余弦相似度)
@@ -64,6 +67,60 @@ faiss 数据集[下载链接](https://pan.baidu.com/s/1vGbwEQlGWTiy8u4LUNf_gg?pw
 
 使用大模型的接口较自己搭建 embedding 模型效果更好，速度更快。其中 Faiss 使用 ANN 算法减少计算 L2 范数时的计算量，在数据量较大时更有用；而 OpenAI embedding 接口及之后的相似度搜索采用的是余弦相似度，在数据量较小时更适用。
 
+## 向量知识库选择
+
+### 多种向量知识库横向对比
+
+<details>
+  <summary>7种向量数据库横向对比</summary>
+  
+  Milvus
+- 类型：自托管向量数据库
+- 代码：开源
+- 价值主张：关注整个搜索引擎的可扩展性，如何高效地对向量数据进行索引和重新索引；如何缩放搜索部分。能够使用多种ANN算法对数据进行索引，以比较它们在您的用例中的性能。
+- 算法：支持多种基于ANN的索引算法，如FAISS、ANNOY、HNSW、RNSG。
+
+Pinecone
+- 类型：托管向量数据库
+- 代码：封闭源代码
+- 价值主张：完全托管的向量数据库，支持非结构化搜索引擎。支持在一个查询中搜索对象并按元数据进行过滤。
+- 算法：由FAISS提供支持的Exact KNN；ANN由专有算法提供支持。
+
+Vespa
+- 类型：托管/自托管向量数据库
+- 代码：开源
+- 价值主张：Vespa是在大型数据集上进行低延迟计算的引擎，提供了面向深度学习的深度数据结构。
+- 算法：使用HNSW算法，以及一套重新排序和密集检索方法。
+
+Weaviate
+- 类型：托管/自托管向量数据库
+- 代码：开源
+- 价值主张：支持类Graphql接口的表达查询语法，允许对丰富的实体数据运行探索性数据科学查询。
+- 算法：使用自定义实现的HNSW算法。
+
+Vald
+- 类型：自托管向量搜索引擎
+- 代码：开源
+- 价值主张：用于十亿向量规模，提供云原生架构。
+- 算法：基于NGT的最快算法。
+
+GSI
+- 类型：Elasticsearch/OpenSearch的向量搜索硬件后端
+- 代码：封闭源代码
+- 价值主张：十亿规模的搜索引擎后端，将Elasticsearch/OpenSearch功能扩展到相似性搜索。
+- 算法：保持神经散列的汉明空间局部性。
+
+Qdrant
+- 类型：托管/自托管向量搜索引擎和数据库
+- 代码：开源
+- 价值主张：具有扩展过滤支持的向量相似度引擎。Qdrant 完全用 Rust 语言开发，实现了动态查询计划和有效负载数据索引。向量负载支持多种数据类型和查询条件，包括字符串匹配、数值范围、地理位置等。
+- 算法：在 Rust 中自定义的 HNSW 实现。
+</details>
+
+### 选择建议
+
+
+
 ## 向量知识库搜索方法
 
 - 构建文本的向量表示：首先，你需要将每段文本转化为向量。这通常可以通过训练好的嵌入模型来实现，比如Word2Vec、GloVe或BERT等。
@@ -107,3 +164,6 @@ $$ \text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\| \mathbf{A} \
 6. [Using Vector Stroes - LlamaIndex](https://gpt-index.readthedocs.io/en/latest/how_to/integrations/vector_stores.html)
 7. [text2vec-large-chinese - Hugging Face](https://huggingface.co/GanymedeNil/text2vec-large-chinese)
 8. [ANNOY](https://sds-aau.github.io/M3Port19/portfolio/ann/)
+9. [墨天轮中国数据库排行](https://www.modb.pro/dbRank?xl0524)
+10. [云原生向量数据库Milvus](https://developer.aliyun.com/article/1065666#:~:text=%E4%BB%80%E4%B9%88%E6%98%AFMilvus-,Milvus%20%E6%98%AF%E4%B8%80%E6%AC%BE%E4%BA%91%E5%8E%9F%E7%94%9F%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E5%AE%83%E5%85%B7%E5%A4%87,%E7%9B%B8%E4%BC%BC%E5%BA%A6%E6%A3%80%E7%B4%A2%E7%9A%84%E9%97%AE%E9%A2%98%E3%80%82)
+11. [向量数据库对比](https://www.modb.pro/db/516016)

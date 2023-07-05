@@ -159,6 +159,7 @@ $$ \text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\| \mathbf{A} \
 
 ## 搜索结果示例
 
+下面的 prompt 及搜索出的 completion 分别对应《5%的改变》一书中的标题和对应标题下的文段
 ![search.PNG](img/search.JPG)
 
 ### 评价
